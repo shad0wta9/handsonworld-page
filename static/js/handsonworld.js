@@ -30,6 +30,7 @@ function setupTeaser(){
  const toggle=document.querySelector('#show-control');
  if(!main||!control||!toggle)return;
  bindVideoOverlay(main,control);
+ control.classList.toggle('is-hidden',!toggle.checked);
  toggle.addEventListener('change',()=>control.classList.toggle('is-hidden',!toggle.checked));
 }
 
@@ -42,6 +43,8 @@ function setupInteractionControls(){
   bindVideoOverlay(main,control);
  });
  document.querySelectorAll('.showcase-control-toggle input').forEach(toggle=>{
+  toggle.closest('.showcase-column').querySelectorAll('.interaction-control')
+   .forEach(control=>control.classList.toggle('is-hidden',!toggle.checked));
   toggle.addEventListener('change',()=>{
    toggle.closest('.showcase-column').querySelectorAll('.interaction-control')
     .forEach(control=>control.classList.toggle('is-hidden',!toggle.checked));
