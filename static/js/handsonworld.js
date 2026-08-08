@@ -29,6 +29,7 @@ function setupTeaser(){
  const control=document.querySelector('#teaser-control');
  const toggle=document.querySelector('#show-control');
  if(!main||!control||!toggle)return;
+ toggle.checked=false;
  bindVideoOverlay(main,control);
  control.classList.toggle('is-hidden',!toggle.checked);
  toggle.addEventListener('change',()=>control.classList.toggle('is-hidden',!toggle.checked));
@@ -43,6 +44,7 @@ function setupInteractionControls(){
   bindVideoOverlay(main,control);
  });
  document.querySelectorAll('.showcase-control-toggle input').forEach(toggle=>{
+  toggle.checked=false;
   toggle.closest('.showcase-column').querySelectorAll('.interaction-control')
    .forEach(control=>control.classList.toggle('is-hidden',!toggle.checked));
   toggle.addEventListener('change',()=>{
