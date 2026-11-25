@@ -111,12 +111,3 @@ setupInteractionControls();
 setupAnnotationCarousel();
 document.querySelectorAll('[data-comparison]').forEach(el=>setupComparison(el.dataset.comparison));
 document.querySelector('.copy').addEventListener('click',e=>navigator.clipboard.writeText(document.querySelector('.bibtex').textContent).then(()=>{e.target.textContent='Copied';setTimeout(()=>e.target.textContent='Copy',1200)}));
-
-const publicationLinks=document.querySelector('.publication-links');
-const arxivButton=publicationLinks.querySelector('a[href*="arxiv.org/abs"]');
-const codePlaceholder=publicationLinks.querySelector('a[href="#BibTeX"]');
-codePlaceholder.removeAttribute('href');
-codePlaceholder.classList.add('is-static');
-codePlaceholder.querySelector('.icon').innerHTML='<i class="fab fa-github"></i>';
-codePlaceholder.querySelector('span:last-child').textContent='Code (Coming Soon)';
-publicationLinks.insertBefore(codePlaceholder.closest('.link-block'),arxivButton.closest('.link-block'));
